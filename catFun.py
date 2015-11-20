@@ -4,7 +4,7 @@ import pygame as pg
 
 from random import randint
 
-name = "Cat Fun. Press the mouse (but not too fast)!"
+name = "The Kevin Sullivan Game!"
 width = 600
 height = 600
 rw.newDisplay(width, height, name)
@@ -12,7 +12,7 @@ rw.newDisplay(width, height, name)
 myimage = dw.loadImage("sullivan_kevin.bmp")
 
 def updateDisplay(state):
-    dw.fill(dw.black)
+    dw.fill((100, 0, 70))
     dw.draw(myimage, (state[0], state[2]))
 
 def updateState(state):
@@ -42,11 +42,9 @@ def handleEvent(state, event):
     else:
         return(state)
 
-
 initState = (100,1,100,1)
 
 frameRate = 60
-
 
 rw.runWorld(initState, updateDisplay, updateState, handleEvent,
             endState, frameRate)
