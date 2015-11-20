@@ -4,6 +4,8 @@ import pygame as pg
 
 from random import randint
 
+counter = 0
+
 name = "The Kevin Sullivan Game!"
 width = 600
 height = 600
@@ -11,10 +13,16 @@ rw.newDisplay(width, height, name)
 
 myimage = dw.loadImage("sullivan_kevin.bmp")
 
+def score(keys):
+    global counter
+
+    if pg.MOUSEBUTTONDOWN in keys:
+        counter += 1
+
 def updateDisplay(state):
     dw.fill((100, 0, 70))
     dw.draw(myimage, (state[0], state[2]))
-    dw.draw(dw.makeLabel("Hello, Player!", "Times", 30, dw.white), (10, 10))
+    dw.draw(dw.makeLabel("Score: " + str(counter), "Vendera", 25, dw.red), (12, 12))
 
 def updateState(state):
     return((state[0]+state[1],state[1],state[2]+state[3],state[3]))
