@@ -14,6 +14,7 @@ myimage = dw.loadImage("sullivan_kevin.bmp")
 def updateDisplay(state):
     dw.fill((100, 0, 70))
     dw.draw(myimage, (state[0], state[2]))
+    dw.draw(dw.makeLabel("Hello, Player!", "Times", 30, dw.white), (10, 10))
 
 def updateState(state):
     return((state[0]+state[1],state[1],state[2]+state[3],state[3]))
